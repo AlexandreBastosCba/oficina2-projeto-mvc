@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System.Reflection.Metadata.Ecma335;
 
 namespace Entidade
 {
@@ -39,7 +39,7 @@ namespace Entidade
         public int AnoConclusao { get; set; }
 
 
-        [Column("arquivo"]
+        [Column("arquivo")]
         [StringLength(int.MaxValue)]
         public int Arquivo { get; set; }
 
@@ -47,6 +47,12 @@ namespace Entidade
         [Column("observacao")]
         [StringLength(500)]
         public string? Observacao { get; set; }
+
+        [ForeignKey("AlunoId")]
+        public Aluno? Aluno { get; set; }
+
+        [ForeignKey("TipoAtividadeId")]
+        public TipoAtividade? TipoAtividade { get; set; }
 
     }
 }

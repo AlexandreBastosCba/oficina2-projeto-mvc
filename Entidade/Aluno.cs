@@ -9,6 +9,7 @@ namespace Entidade
     {
         [Key]
         [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("alunoid")]
         public int AlunoId { get; set; }
 
@@ -36,5 +37,7 @@ namespace Entidade
         [StringLength(20)]
         public string? Telefone { get; set; }
 
+        [NotMapped]
+        public ICollection<AtividadeComplementar>? AtividadesComplentares{ get; set; }
     }
 }

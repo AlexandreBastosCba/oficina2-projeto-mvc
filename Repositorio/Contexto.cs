@@ -20,5 +20,10 @@ namespace Repositorio
         {
             SaveChanges();
         }
+
+        public Contexto(DbContextOptions options): base(options)
+        {
+            this.ChangeTracker.LazyLoadingEnabled = false;
+        }
     }
 }

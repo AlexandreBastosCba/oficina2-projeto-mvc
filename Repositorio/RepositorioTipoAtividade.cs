@@ -5,14 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Repositorio.Contratos;
 
 namespace Repositorio
 {
-    public class RepositorioTipoAtividade
+    public class RepositorioTipoAtividade : IRepositorioTipoAtividade
     {
-        private readonly Contexto _contexto;
+        private readonly IContexto _contexto;
 
-        public RepositorioTipoAtividade(Contexto contexto)
+        public RepositorioTipoAtividade(IContexto contexto)
         {
             _contexto = contexto;
         }
@@ -41,7 +42,7 @@ namespace Repositorio
         public void AtualizarAtividade(int codigoTipoAtividade, TipoAtividade novoTipoAtividade)
         {
             var atividade = _contexto.TiposAtividade?.FirstOrDefault(atv => atv.TipoAtividadeId == codigoTipoAtividade);
-            if(atividade != null)
+            if (atividade != null)
             {
                 _contexto.AtualizarEntity(atividade, novoTipoAtividade);
             }

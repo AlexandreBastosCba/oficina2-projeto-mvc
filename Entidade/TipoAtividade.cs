@@ -15,5 +15,8 @@ namespace Entidade
         [Column("descricao")]
         public string? Descricao { get; set; }
 
+        [NotMapped]
+        public ICollection<AtividadeComplementar>? AtividadesComplentares { get; set; }
+
     }
 }
