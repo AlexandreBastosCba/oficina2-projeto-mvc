@@ -4,37 +4,44 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Cadastrar Tipo Atividade</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Novo Cadastro</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TipoAtividadeId)
+                Código
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descricao)
+                Descrição
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TipoAtividadeId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.TipoAtividadeId  }) |
-             
-               
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoAtividadeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+
+                <td>
+                    <form asp-action="Edit" method="get">
+                        <div class="form-group">
+                            <input name="id" value=@item.TipoAtividadeId hidden />
+                            <input type="submit"
+                               value="Alterar"
+                               class="btn btn-outline-primary" />
+                        </div>
+                    </form>
+                </td>
                 <td>
                     <form asp-action="Delete" method="post">
                         <div class="form-group">
@@ -46,7 +53,7 @@
                         </div>
                     </form>
                 </td>
-        </tr>
-}
+            </tr>
+        }
     </tbody>
 </table>

@@ -71,11 +71,11 @@ namespace UI.Controllers
         // POST: TiposAtividadeController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, TipoAtividade tipoAtividade)
+        public ActionResult Edit(TipoAtividade tipoAtividade)
         {
             try
             {
-                _repositorioTipoAtividade.AtualizarAtividade(id,tipoAtividade);
+                _repositorioTipoAtividade.AtualizarAtividade(tipoAtividade.TipoAtividadeId,tipoAtividade);
                 _contexto.Salvar();
 
                 return RedirectToAction(nameof(Index));

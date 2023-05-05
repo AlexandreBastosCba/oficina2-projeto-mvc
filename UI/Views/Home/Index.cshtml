@@ -2,7 +2,37 @@
     ViewData["Title"] = "Home Page";
 }
 
+<body>
+    <header>
+        <div class="container-fluid">
+
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <b>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TiposAtividade" asp-action="Index">Cadastro Tipos Atividade</a>
+                            </b>
+                        </li>
+                        <li class="nav-item">
+                            <b>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Aluno" asp-action="Index">Aluno</a>
+                            </b>
+                        </li>
+                        <li class="nav-item">
+                            <b>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="AtividadeComplementar" asp-action="Index">Atividades</a>
+                            </b>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <br />
+    <br />
+    <h1 class="display-4">Sistema de Cadastro de Atividades</h1>
+
 </div>
+</body>
