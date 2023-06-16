@@ -7,6 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\AtividadeComplementar\HomeController.cs" />
+    <Compile Remove="Views\AtividadeComplementar\HomeController1.cs" />
+    <Compile Remove="Views\AtividadeComplementar\ValuesController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Aluno\Component.razor" />
+    <Content Remove="Views\AtividadeComplementar\Component.razor" />
+    <Content Remove="Views\AtividadeComplementar\Index1.cshtml" />
+    <Content Remove="Views\AtividadeComplementar\_Layout.cshtml" />
+    <Content Remove="Views\AtividadeComplementar\_ViewStart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4">
       <PrivateAssets>all</PrivateAssets>

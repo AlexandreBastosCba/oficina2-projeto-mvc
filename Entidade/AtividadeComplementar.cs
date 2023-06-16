@@ -39,9 +39,13 @@ namespace Entidade
         public int AnoConclusao { get; set; }
 
 
-        [Column("arquivo")]
-        [StringLength(int.MaxValue)]
-        public int Arquivo { get; set; }
+        [Column("arquivo",TypeName ="longblob")]
+        [MaxLength]
+        public byte[]? Arquivo { get; set; }
+
+        [Column("nomearquivo")]
+        [StringLength(500)]
+        public string? NomeArquivo { get; set; }
 
 
         [Column("observacao")]
@@ -53,6 +57,12 @@ namespace Entidade
 
         [ForeignKey("TipoAtividadeId")]
         public TipoAtividade? TipoAtividade { get; set; }
+
+        [NotMapped]
+        public List<Aluno>? AlunosParaSelecao { get; set; }
+
+        [NotMapped]
+        public List<TipoAtividade>? TipoAtividadesParaSelecao { get; set; }
 
     }
 }

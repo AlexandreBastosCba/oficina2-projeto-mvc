@@ -7,7 +7,7 @@ namespace Repositorio
     public class Contexto : DbContext, IContexto
     {
         public DbSet<TipoAtividade>? TiposAtividade { get; set; }
-        public DbSet<Aluno>? Alunos { get; set; }
+        public DbSet<Aluno>? Aluno { get; set; }
         public DbSet<AtividadeComplementar>? AtividadesComplementar { get; set; }
 
         public void AtualizarEntity<T>(T entidade, T novaEntidade)

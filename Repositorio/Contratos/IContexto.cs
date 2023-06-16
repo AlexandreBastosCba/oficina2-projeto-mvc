@@ -11,7 +11,7 @@ namespace Repositorio.Contratos
     public interface IContexto
     {
         DbSet<TipoAtividade>? TiposAtividade { get; set; }
-        DbSet<Aluno>? Alunos { get; set; }
+        DbSet<Aluno>? Aluno { get; set; }
         DbSet<AtividadeComplementar>? AtividadesComplementar { get; set; }
         void Salvar();
         void AtualizarEntity<T>(T entidade, T novaEntidade);

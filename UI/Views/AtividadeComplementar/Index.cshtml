@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Entidade.AtividadeComplementar>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>Cadastrar Atividade Complementar</h1>
+<p>
+    <a asp-action="Create">Novo Cadastro</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Código
+            </th>
+            <th>
+                Aluno
+            </th>
+            <th>
+               Tipos
+            </th>
+            <th>
+                Atividade
+            </th>
+            <th>
+                Carga Hr
+            </th>
+            <th>
+                Instituição
+            </th>
+            <th>
+               Conclusão
+            </th>
+           @* <th>
+                @Html.DisplayNameFor(model => model.Arquivo)
+            </th>*@
+            <th>
+                Observações
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AtividadeComplementarId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aluno.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoAtividade.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescricaoAtividade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CargaHoraria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Institiuicao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnoConclusao)
+                </td>
+            @*    <td>
+                    @Html.DisplayFor(modelItem => item.Arquivo)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observacao)
+                </td>
+                <td>
+                    <form asp-action="Edit" method="get">
+                        <div class="form-group">
+                            <input name="id" value=@item.AtividadeComplementarId hidden />
+                            <input type="submit"
+                               value="Alterar"
+                               class="btn btn-outline-primary" />
+                        </div>
+                    </form>
+                </td>
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <div class="form-group">
+                            <input name="id" value=@item.AtividadeComplementarId hidden />
+                            <input type="submit"
+                               value="Apagar"
+                               class="btn btn-outline-danger"
+                               onclick="return confirm('Deseja realmente apagar a atividade complementar @item.DescricaoAtividade?');" />
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

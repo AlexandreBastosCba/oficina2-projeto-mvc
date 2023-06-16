@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Entidade.Aluno>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cadastrar Aluno</h1>
+
+<p>
+    <a asp-action="Create">Novo Cadastro</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Código
+            </th>
+            <th>
+                CPF
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Matricula
+            </th>
+            <th>
+                E-mail
+            </th>
+            <th>
+                Telefone
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlunoId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Matricula)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+
+                <td>
+                    <form asp-action="Edit" method="get">
+                        <div class="form-group">
+                            <input name="id" value=@item.AlunoId hidden />
+                            <input type="submit"
+                               value="Alterar"
+                               class="btn btn-outline-primary" />
+                        </div>
+                    </form>
+                </td>
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <div class="form-group">
+                            <input name="id" value=@item.AlunoId hidden />
+                            <input type="submit"
+                               value="Apagar"
+                               class="btn btn-outline-danger"
+                               onclick="return confirm('Deseja realmente apagar o Aluno @item.Nome?');" />
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
